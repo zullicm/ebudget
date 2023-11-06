@@ -36,3 +36,18 @@
     transform: rotate(360deg);
   }
 }
+
+#NavBar{
+  margin: 0px;
+  background-color: rgb(134, 255, 174);
+}
+
+#eBudget-Logo{
+  margin: 0px;
+  padding: 10px 50px;
+  padding-bottom: 15px;
+}
+
+#welcome-messege{
+  color: blue;
+}

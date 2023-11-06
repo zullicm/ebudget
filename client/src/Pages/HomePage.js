@@ -4,7 +4,7 @@ function HomePage() {
 
   return(
     <div>
-      <h1>Hello welcome to eBudget!</h1>
+      <h1 id="welcome-messege">Hello welcome to eBudget!</h1>
     </div>
   )
 }

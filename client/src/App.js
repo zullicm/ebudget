@@ -4,10 +4,12 @@ import logo from './logo.svg';
 import './App.css';
 import HomePage from './Pages/HomePage';
 import ReactLogo from './Pages/ReactLogo';
+import NavBar from './Component/NavBar';
 
 function App() {
   return (
     <div>
+      <NavBar />
       <Routes>
         <Route exact path='/' element={<HomePage />} />
         <Route exact path='/react' element={<ReactLogo />} logo={logo} />
