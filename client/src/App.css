@@ -38,14 +38,31 @@
 }
 
 #NavBar{
+  display: grid;
+  grid-template-rows: 50px;
+  grid-template-columns: 100px 65% 100px 100px 100px 100px;
   margin: 0px;
   background-color: rgb(134, 255, 174);
 }
 
-#eBudget-Logo{
+.eBudget-Logo{
   margin: 0px;
   padding: 10px 50px;
   padding-bottom: 15px;
+}
+
+.item-1{
+  grid-column: 3;
+}
+
+.item{
+  text-align: center;
+  border: 1px solid black;
+  padding: 10px;
+  padding-top: 13px;
+  border-top: 0px;
+  border-bottom: 0px;
+  border-right: 0px;
 }
 
 #welcome-messege{
