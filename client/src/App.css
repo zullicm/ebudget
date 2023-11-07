@@ -42,10 +42,11 @@
   grid-template-rows: 50px;
   grid-template-columns: 100px 65% 100px 100px 100px 100px;
   margin: 0px;
-  background-color: rgb(134, 255, 174);
+  background-color: rgb(87, 214, 129);
 }
 
 .eBudget-Logo{
+  cursor: pointer;
   margin: 0px;
   padding: 10px 50px;
   padding-bottom: 15px;
@@ -56,6 +57,7 @@
 }
 
 .item{
+  cursor: pointer;
   text-align: center;
   border: 1px solid black;
   padding: 10px;

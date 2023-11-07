@@ -5,6 +5,7 @@ import './App.css';
 import HomePage from './Pages/HomePage';
 import ReactLogo from './Pages/ReactLogo';
 import NavBar from './Component/NavBar';
+import BudgetFormPage from './Pages/BudgetFormPage';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <Routes>
         <Route exact path='/' element={<HomePage />} />
         <Route exact path='/react' element={<ReactLogo />} logo={logo} />
+        <Route exact path='/formpage' element={<BudgetFormPage/>} />
       </Routes>
     </div>
   );

@@ -1,18 +1,15 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 
 function NavBar() {
 
-  function navTest(word){
-    console.log(word)
-  }
-
   return(
     <div id="NavBar">
-      <div onClick={() => navTest("eBudget Logo")} className="eBudget-Logo">eBudget</div>
-      <div onClick={() => navTest()} className="item item-1">Item 1</div>
-      <div onClick={() => navTest()} className="item item-2">Item 2</div>
-      <div onClick={() => navTest()} className="item item-3">Item 3</div>
-      <div onClick={() => navTest("Profile")} className="item item-4">Profile</div>
+      <NavLink className="eBudget-Logo" exact to="/">eBudget</NavLink>
+      <NavLink className="item item-1" exact to="/formpage">BudgetFormPage</NavLink>
+      <div className="item item-2">Item 2</div>
+      <div className="item item-3">Item 3</div>
+      <div className="item item-4">Profile</div>
     </div>
   )
 }
