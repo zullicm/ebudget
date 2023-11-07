@@ -18,11 +18,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_16_193938) do
     t.float "amount"
     t.string "start_date"
     t.string "end_date"
-    t.bigint "category_id", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["category_id"], name: "index_budgets_on_category_id"
     t.index ["user_id"], name: "index_budgets_on_user_id"
   end
 
@@ -30,8 +28,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_16_193938) do
     t.string "name"
     t.string "description"
     t.string "color"
+    t.bigint "budget_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["budget_id"], name: "index_categories_on_budget_id"
   end
 
   create_table "expenses", force: :cascade do |t|
@@ -57,8 +57,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_16_193938) do
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "budgets", "categories"
   add_foreign_key "budgets", "users"
+  add_foreign_key "categories", "budgets"
   add_foreign_key "expenses", "categories"
   add_foreign_key "expenses", "users"
 end
