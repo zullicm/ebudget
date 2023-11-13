@@ -6,7 +6,6 @@ function SignUpForm(){
   // "email"
   // "username"
   // "password_digest"
-  // "image" learn how to use files instead of urls
 
 
   return(

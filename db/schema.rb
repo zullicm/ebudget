@@ -52,7 +52,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_16_193938) do
     t.string "email"
     t.string "username"
     t.string "password_digest"
-    t.string "image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
