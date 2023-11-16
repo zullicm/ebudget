@@ -1,11 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function SignUpForm(){
-
-  // What is needed for signup page
-  // "email"
-  // "username"
-  // "password_digest"
+  const [name, setName] = useState("")
+  const [email, setEmail] = useState("")
+  const [password, setPassword] = useState("")
+  const [passwordConfirmation, setPasswordConfirmation] = useState("")
+  const [show, setShow] = useState("password")
+  const [error, setError] = useState(null)
+  const history = useNavigate()
 
 
   return(
@@ -21,8 +24,8 @@ function SignUpForm(){
           name="name" 
           placeholder="John Doe" 
           type="text"
-          // value={name}
-          // onChange={(e) => setName(e.target.value)}
+          value={name}
+          onChange={(e) => setName(e.target.value)}
           ></input>
         <label className="left">Email</label>
         <input 
@@ -30,24 +33,24 @@ function SignUpForm(){
           name="email" 
           placeholder="JohnDoe@email.com" 
           type="text"
-          // value={email}
-          // onChange={(e) => setEmail(e.target.value)}
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
           ></input>
         <label className="left">Password</label>
         <input 
           name="password" 
           placeholder="Password" 
-          // type={show}
-          // value={password}
-          // onChange={(e) => setPassword(e.target.value)}
+          type={show}
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
           ></input>
         <label className="left">Confirm Password</label>
         <input 
           name="password-confirmation" 
           placeholder="Confirm Password" 
-          // type={show}
-          // value={passwordConfirmation}
-          // onChange={(e) => setPasswordConfirmation(e.target.value)}
+          type={show}
+          value={passwordConfirmation}
+          onChange={(e) => setPasswordConfirmation(e.target.value)}
           ></input>
       <br/>
       <br/>
