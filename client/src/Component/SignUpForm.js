@@ -10,12 +10,60 @@ function SignUpForm(){
   const [error, setError] = useState(null)
   const history = useNavigate()
 
+  function showPass(e){
+    e.preventDefault();
+    if(show === "password"){
+      setShow("text")
+    }else{
+      setShow("password")
+    }
+  }
+
+  function setCurrentUser(data){
+    // setUser(data)
+    history('/userpage')
+    console.log(data)
+  }
+
+  function handleError(e){
+    console.log(e)
+    setError(e)
+    setName("")
+    setEmail("")
+    setPassword("")
+    setPasswordConfirmation("")
+    setShow("password")
+  }
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    fetch("/signup", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        full_name: name,
+        email,
+        password,
+        password_confirmation: passwordConfirmation,
+      }),
+    })
+    .then(r => {
+      if(r.ok){
+        r.json().then(data => setCurrentUser(data))
+      }else{
+        r.json().then(e => handleError(e))
+      }
+    })
+  }
+
 
   return(
     <div>
       <div className="signup-form">
       <h5>Sign Up</h5>
-      {/* {error ? <p className="login-error"><b><i><u>{error.errors.map(error => <>{error}<br/></>)}</u></i></b></p>: null} */}
+      {error ? <p className="login-error"><b><i><u>{error.errors.map(error => <>{error}<br/></>)}</u></i></b></p>: null}
       <div className="signup">
         <form>
         <label className="left">Username</label>
@@ -54,13 +102,13 @@ function SignUpForm(){
           ></input>
       <br/>
       <br/>
-      {/* <button className="show-pass z-depth-3" onClick={e => showPass(e)}>SHOW PASSWORD?</button> */}
+      <button className="show-pass z-depth-3" onClick={e => showPass(e)}>SHOW PASSWORD?</button>
       <br/>
-      {/* <button className="login-signup z-depth-3" onClick={e => handleSubmit(e)}>SIGN UP</button> */}
+      <button className="login-signup z-depth-3" onClick={e => handleSubmit(e)}>SIGN UP</button>
       </form>
       </div>
       <p><b><u>Already have an account?</u></b></p>
-      {/* <button onClick={()=> setForm(true)} className="switch-form">LOGIN</button> */}
+      <button className="switch-form">LOGIN</button>
     </div>
     </div>
   )
