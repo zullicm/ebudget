@@ -21,23 +21,23 @@ function SignUpForm(){
 
   function setCurrentUser(data){
     // setUser(data)
-    history('/userpage')
+    // history('/userpage')
     console.log(data)
   }
 
   function handleError(e){
     console.log(e)
-    setError(e)
-    setName("")
-    setEmail("")
-    setPassword("")
-    setPasswordConfirmation("")
-    setShow("password")
+    // setError(e)
+    // setName("")
+    // setEmail("")
+    // setPassword("")
+    // setPasswordConfirmation("")
+    // setShow("password")
   }
 
   function handleSubmit(e) {
     e.preventDefault();
-    fetch("/signup", {
+    fetch("http://localhost:3000/users", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

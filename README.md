@@ -22,3 +22,5 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+Start server too actually work on rails code using “ sudo service postgresql start ”
