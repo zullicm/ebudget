@@ -43,7 +43,7 @@ function SignUpForm(){
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        full_name: name,
+        username: name,
         email,
         password,
         password_confirmation: passwordConfirmation,
