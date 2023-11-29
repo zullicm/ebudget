@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { Route, Routes } from 'react-router-dom';
 import logo from './logo.svg';
 import './App.css';
@@ -9,6 +9,17 @@ import BudgetFormPage from './Pages/BudgetFormPage';
 import LoginPage from './Pages/LoginPage';
 
 function App() {
+  
+
+  useEffect(() =>{
+    fetch('/auth')
+    .then(res => {
+      if(res.ok){
+        res.json().then(user => setUser(user))
+      }
+    })
+  },[])
+
   return (
     <div>
       <NavBar />
