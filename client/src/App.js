@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import { Route, Routes } from 'react-router-dom';
 import logo from './logo.svg';
 import './App.css';
@@ -9,7 +9,7 @@ import BudgetFormPage from './Pages/BudgetFormPage';
 import LoginPage from './Pages/LoginPage';
 
 function App() {
-  
+  const [user, setUser] = useState('')
 
   useEffect(() =>{
     fetch('/auth')
@@ -22,7 +22,7 @@ function App() {
 
   return (
     <div>
-      <NavBar />
+      <NavBar user={user}/>
       <Routes>
         <Route exact path='/' element={<HomePage />} />
         <Route exact path='/react' element={<ReactLogo />} logo={logo} />
