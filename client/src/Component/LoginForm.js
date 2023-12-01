@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-function LoginForm(){
+function LoginForm({setUser}){
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
   const [show, setShow] = useState("password")
@@ -18,10 +18,11 @@ function LoginForm(){
     }
   }
 
-  // function setCurrentUser(data){
-  //   setUser(data)
-  //   history('/userpage')
-  // }
+  function setCurrentUser(data){
+    setUser(data)
+    console.log(data)
+    // history('/userpage')
+  }
 
   function handleError(e){
     setError(e)
@@ -30,26 +31,26 @@ function LoginForm(){
     setShow("password")
   }
   
-  // function handleSubmit(e) {
-  //   e.preventDefault();
-  //   fetch("/signin", {
-  //     method: "POST",
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //     },
-  //     body: JSON.stringify({
-  //       email,
-  //       password
-  //     }),
-  //   })
-  //   .then(r => {
-  //     if(r.ok){
-  //       r.json().then(data => setCurrentUser(data))
-  //     }else{
-  //       r.json().then(e => handleError(e))
-  //     }
-  //   })
-  // }
+  function handleSubmit(e) {
+    e.preventDefault();
+    fetch("http://localhost:3000/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        email,
+        password
+      }),
+    })
+    .then(r => {
+      if(r.ok){
+        r.json().then(data => setCurrentUser(data))
+      }else{
+        r.json().then(e => handleError(e))
+      }
+    })
+  }
 
   return(
     <div className="login-form">
@@ -62,23 +63,23 @@ function LoginForm(){
           name="email" 
           placeholder="JohnDoe@email.com" 
           type="text"
-          // value={email}
-          // onChange={(e) => setEmail(e.target.value)}
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
           ></input>
       <label className="left">Email</label>
         <input 
           name="password" 
           placeholder="Password" 
-          // type={show}
-          // value={password}
-          // onChange={(e) => setPassword(e.target.value)}
+          type={show}
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
           ></input>
       <label className="left">Password</label>
       <br/>
       <br/>
       <button className="show-pass z-depth-3" onClick={e => showPass(e)}>SHOW PASSWORD?</button>
       <br/>
-      {/* <button className="login-signup z-depth-3" onClick={e => handleSubmit(e)}>LOGIN</button> */}
+      <button className="login-signup z-depth-3" onClick={e => handleSubmit(e)}>LOGIN</button>
       </form>
       </div>
       <p><b><u>Need to make an account?</u></b></p>

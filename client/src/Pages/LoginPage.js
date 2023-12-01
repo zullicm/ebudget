@@ -2,7 +2,7 @@ import React from "react";
 import LoginForm from "../Component/LoginForm";
 import SignUpForm from "../Component/SignUpForm";
 
-function LoginPage(){
+function LoginPage({setUser}){
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -15,7 +15,7 @@ function LoginPage(){
     <div>
       LoginPage
       <SignUpForm />
-      <LoginForm />
+      <LoginForm setUser={setUser}/>
 
       <button onClick={handleSubmit}>Get data</button>
 

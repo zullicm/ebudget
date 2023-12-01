@@ -27,7 +27,7 @@ function App() {
         <Route exact path='/' element={<HomePage />} />
         <Route exact path='/react' element={<ReactLogo />} logo={logo} />
         <Route exact path='/formpage' element={<BudgetFormPage/>} />
-        <Route exact path='/login' element={<LoginPage/>} />
+        <Route exact path='/login' element={<LoginPage setUser={setUser}/>} />
       </Routes>
     </div>
   );
