@@ -1,11 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { UserContext } from "../Context/user";
 import { useNavigate } from "react-router-dom";
 
-function LoginForm({setUser}){
+function LoginForm(){
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
   const [show, setShow] = useState("password")
   const [error, setError] = useState(null)
+  const {user, setUser} = useContext(UserContext)
   // const history = useNavigate()
 
   function showPass(e){
@@ -33,7 +35,7 @@ function LoginForm({setUser}){
   
   function handleSubmit(e) {
     e.preventDefault();
-    fetch("http://localhost:3000/login", {
+    fetch("/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

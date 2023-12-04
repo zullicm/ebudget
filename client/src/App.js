@@ -8,26 +8,17 @@ import NavBar from './Component/NavBar';
 import BudgetFormPage from './Pages/BudgetFormPage';
 import LoginPage from './Pages/LoginPage';
 
-function App() {
-  const [user, setUser] = useState('')
 
-  useEffect(() =>{
-    fetch('/auth')
-    .then(res => {
-      if(res.ok){
-        res.json().then(user => setUser(user))
-      }
-    })
-  },[])
+function App() {
 
   return (
     <div>
-      <NavBar user={user}/>
+      <NavBar/>
       <Routes>
         <Route exact path='/' element={<HomePage />} />
         <Route exact path='/react' element={<ReactLogo />} logo={logo} />
         <Route exact path='/formpage' element={<BudgetFormPage/>} />
-        <Route exact path='/login' element={<LoginPage setUser={setUser}/>} />
+        <Route exact path='/login' element={<LoginPage/>} />
       </Routes>
     </div>
   );

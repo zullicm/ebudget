@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useContext }from "react";
 import { NavLink } from "react-router-dom";
+import { UserContext } from "../Context/user";
 
-function NavBar({user}) {
+function NavBar() {
+  
+  const {user, setUser} = useContext(UserContext)
 
   return(
     <div id="NavBar">
