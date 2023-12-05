@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
+import { UserContext } from "../Context/user";
 import { useNavigate } from "react-router-dom";
 
 function SignUpForm(){
@@ -8,6 +9,7 @@ function SignUpForm(){
   const [passwordConfirmation, setPasswordConfirmation] = useState("")
   const [show, setShow] = useState("password")
   const [error, setError] = useState(null)
+  const {user, setUser} = useContext(UserContext)
   const history = useNavigate()
 
   function showPass(e){
@@ -20,19 +22,19 @@ function SignUpForm(){
   }
 
   function setCurrentUser(data){
-    // setUser(data)
+    setUser(data)
     // history('/userpage')
     console.log(data)
   }
 
   function handleError(e){
     console.log(e)
-    // setError(e)
-    // setName("")
-    // setEmail("")
-    // setPassword("")
-    // setPasswordConfirmation("")
-    // setShow("password")
+    setError(e)
+    setName("")
+    setEmail("")
+    setPassword("")
+    setPasswordConfirmation("")
+    setShow("password")
   }
 
   function handleSubmit(e) {
