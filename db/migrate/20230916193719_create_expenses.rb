@@ -10,6 +10,7 @@ class CreateExpenses < ActiveRecord::Migration[7.0]
       t.string :url
 
       t.timestamps
+      # 20230916193719
     end
   end
 end

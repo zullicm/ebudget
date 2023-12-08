@@ -28,10 +28,12 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_16_193938) do
     t.string "name"
     t.string "description"
     t.string "color"
+    t.bigint "user_id", null: false
     t.bigint "budget_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["budget_id"], name: "index_categories_on_budget_id"
+    t.index ["user_id"], name: "index_categories_on_user_id"
   end
 
   create_table "expenses", force: :cascade do |t|
@@ -58,6 +60,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_16_193938) do
 
   add_foreign_key "budgets", "users"
   add_foreign_key "categories", "budgets"
+  add_foreign_key "categories", "users"
   add_foreign_key "expenses", "categories"
   add_foreign_key "expenses", "users"
 end

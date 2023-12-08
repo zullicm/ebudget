@@ -6,6 +6,7 @@ class CreateUsers < ActiveRecord::Migration[7.0]
       t.string :password_digest
 
       t.timestamps
+      # 20230916193003
     end
   end
 end

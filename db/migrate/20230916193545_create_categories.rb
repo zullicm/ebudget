@@ -8,6 +8,7 @@ class CreateCategories < ActiveRecord::Migration[7.0]
       t.belongs_to :budget, null: false, foreign_key: true
   
       t.timestamps
+      # 20230916193545
     end
   end
 end
