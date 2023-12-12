@@ -65,7 +65,7 @@ function SignUpForm(){
     <div>
       <div className="signup-form">
       <h5>Sign Up</h5>
-      {error ? <p className="login-error"><b><i><u>{error.errors.map(error => <>{error}<br/></>)}</u></i></b></p>: null}
+      {error ? console.log(error) : null}
       <div className="signup">
         <form>
         <label className="left">Username</label>
