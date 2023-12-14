@@ -5,7 +5,7 @@ function BudgetForm(){
   return(
     <div>
       <form>
-
+        
       </form>
     </div>
   )
