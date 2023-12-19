@@ -1,5 +1,6 @@
 import React, { useState, useContext } from "react";
 import { UserContext } from "../Context/user";
+import { BudgetsContext } from "../Context/budgets";
 
 
 function BudgetForm(){
@@ -8,6 +9,7 @@ function BudgetForm(){
   const [start, setStart] = useState('')
   const [end , setEnd] = useState('')
   const {user, setUser} = useContext(UserContext)
+  const {budgets, setBudgets} = useContext(BudgetsContext)
   
   function submitBudget(){
     const floatAmount = parseFloat(amount.replace(/,/g, ''))
@@ -22,10 +24,18 @@ function BudgetForm(){
         user_id: user.id
       })
     })
+    .then(r => {
+      if(r.ok){
+        r.json().then(data => setBudgets(data))
+      }else{
+        r.json().then(e => console.log(e))
+      }
+    })
   }
 
+
   return(
-    <div>
+    <div className="form budget-form">
       <p>Budget Amount {parseFloat(amount.replace(/,/g, '')) ? <p></p> : <p>Must be a number</p> }</p>
       <input
       name="amount"
@@ -58,6 +68,7 @@ function BudgetForm(){
       >
       </input>
       <button onClick={submitBudget} >Submit Budget</button>
+      <button onClick={()=>console.log(budgets)}>BUDGETS</button>
     </div>
   )
 }

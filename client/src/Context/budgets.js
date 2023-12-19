@@ -13,7 +13,7 @@ function BudgetsProvider({ children }) {
 
 
   return (
-    <BudgetsContext.Provider value={{budgets, setBudgets}}>
+    <BudgetsContext.Provider value={{ budgets, setBudgets }}>
       {children}
     </BudgetsContext.Provider>
   );

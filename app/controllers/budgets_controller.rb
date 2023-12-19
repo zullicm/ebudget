@@ -6,7 +6,7 @@ class BudgetsController < ApplicationController
   end
 
   def create
-    budget Budget.create(budget_params)
+    budget = Budget.create(budget_params)
     if budget.valid?
       render json: budget, status: :created
     else
