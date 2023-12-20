@@ -5,6 +5,11 @@ class BudgetsController < ApplicationController
     render json: budget
   end
 
+  def show
+    budgets = Budget.find_by(id: budget_params[:user_id])
+    render json: budgets
+  end
+
   def create
     budget = Budget.create(budget_params)
     if budget.valid?
