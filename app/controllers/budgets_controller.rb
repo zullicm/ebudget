@@ -1,14 +1,10 @@
 class BudgetsController < ApplicationController
 
   def index
-    budget = Budget.all
-    render json: budget
-  end
-
-  def show
-    budgets = Budget.find_by(id: budget_params[:user_id])
+    budgets = Budget.where(user_id: session[:user_id]) 
     render json: budgets
   end
+
 
   def create
     budget = Budget.create(budget_params)

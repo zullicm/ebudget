@@ -12,17 +12,18 @@ function Budgets(){
     .then(data => console.log(data))
   },[])
 
-  useEffect(() =>{
-    fetch('/budgets',{
-      method: "POST",
-      headers: {'Content-Type':'application/json'},
-      body:JSON.stringify({
-        user_id: user ? user.id : null
-      })
-    })
-    .then(res => res.json())
-    .then(data => budgetSetter(data))
-  },[])
+
+  // useEffect(() =>{
+  //   fetch(,{
+  //     method: "",
+  //     headers: {'Content-Type':'application/json'},
+  //     body:JSON.stringify({
+  //       user_id: user ? user.id : null
+  //     })
+  //   })
+  //   .then(res => res.json())
+  //   .then(data => budgetSetter(data))
+  // },[])
 
   function budgetSetter(data){
     setBudgets(data)
