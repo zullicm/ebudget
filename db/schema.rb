@@ -15,6 +15,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_16_193938) do
   enable_extension "plpgsql"
 
   create_table "budgets", force: :cascade do |t|
+    t.string "name"
     t.float "amount"
     t.string "color"
     t.string "start_date"
