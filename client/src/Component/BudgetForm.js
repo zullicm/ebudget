@@ -4,6 +4,7 @@ import { BudgetsContext } from "../Context/budgets";
 
 
 function BudgetForm(){
+  const [name, setName] = useState('')
   const [amount, setAmount] = useState('')
   const [color, setColor] = useState('')
   const [start, setStart] = useState('')
@@ -36,7 +37,16 @@ function BudgetForm(){
 
   return(
     <div className="form budget-form">
-      <p>Budget Amount {parseFloat(amount.replace(/,/g, '')) ? <p></p> : <p>Must be a number</p> }</p>
+      <p>Budget name</p>
+      <input
+      name="name"
+      value={name}
+      placeholder="Monthly Budget / Vaction"
+      onChange={e => setName(e.target.value)}
+      >
+      </input>
+      <br/>
+        <p>Budget Amount</p>
       <input
       name="amount"
       value={amount}
@@ -74,10 +84,3 @@ function BudgetForm(){
 }
 
 export default BudgetForm
-
-
-
-  // :amount, :color, :start_date, :end_date, :user_id
-  // for now start and end date will look like this "03/23/2023" and will change once calender component is created
-
-  // parseFloat(amount.replace(/,/g, '') HOW TO CREATE NUM
