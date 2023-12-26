@@ -6,7 +6,7 @@ import Budget from "./Budget";
 function Budgets(){
   const {budgets, setBudgets} = useContext(BudgetsContext)
   const {user, setUser} = useContext(UserContext)
-
+console.log(budgets)
 
   return(
     <div>

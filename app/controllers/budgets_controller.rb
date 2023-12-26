@@ -24,7 +24,7 @@ class BudgetsController < ApplicationController
   private
 
   def budget_params
-    params.permit(:amount, :color, :start_date, :end_date, :user_id)
+    params.permit(:name, :amount, :color, :start_date, :end_date, :user_id)
   end
 
 end
