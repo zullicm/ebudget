@@ -6,8 +6,7 @@ import Budget from "./Budget";
 function Budgets(){
   const {budgets, setBudgets} = useContext(BudgetsContext)
   const {user, setUser} = useContext(UserContext)
-console.log(budgets)
-
+  console.log(budgets)
   return(
     <div>
       {budgets.map(budget =><Budget budget={budget} />)}

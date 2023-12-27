@@ -7,8 +7,13 @@ function BudgetsProvider({ children }) {
 
   useEffect(() =>{
     fetch('/budgets')
-    .then(res => res.json())
-    .then(data => setBudgets(data))
+    .then(r =>{
+      if(r.ok){
+        r.json().then(data => setBudgets(data))
+      }else{
+        r.json().then(e => console.log(e))
+      }
+    })
   },[])
 
   return (
@@ -19,3 +24,12 @@ function BudgetsProvider({ children }) {
 }
 
 export { BudgetsContext, BudgetsProvider };
+
+
+// .then(r => {
+//   if(r.ok){
+//     r.json().then(data => setBudgets(data))
+//   }else{
+//     r.json().then(e => console.log(e))
+//   }
+// })

@@ -2,7 +2,7 @@ class BudgetsController < ApplicationController
 
   def index
     budgets = Budget.where(user_id: session[:user_id]) 
-    render json: budgets
+    render json: budgets, include: ['user']
   end
 
 
@@ -19,6 +19,16 @@ class BudgetsController < ApplicationController
     budget = Budget.find_by(id: params[:id])
     budget.update(budget_params)
     render json: budget
+  end
+
+  def destroy
+    budget = Budget.find_by(id: params[:id])
+    if budget
+      budget.destroy
+      render json: budget 
+    else
+      render json: { error: "Budget not found" }, status: :not_found
+    end
   end
 
   private
