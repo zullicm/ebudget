@@ -1,5 +1,6 @@
 import React, { useState, useContext } from "react";
 import { UserContext } from "../Context/user";
+import { BudgetContext, BudgetsContext } from "../Context/budgets";
 import { useNavigate } from "react-router-dom";
 
 function LoginForm(){
@@ -8,6 +9,8 @@ function LoginForm(){
   const [show, setShow] = useState("password")
   const [error, setError] = useState(null)
   const {user, setUser} = useContext(UserContext)
+  const {budgets, setBudgets} = useContext(BudgetsContext)
+
   // const history = useNavigate()
 
   function showPass(e){
@@ -22,6 +25,7 @@ function LoginForm(){
 
   function setCurrentUser(data){
     setUser(data)
+    setBudgets(data.budgets)
     console.log(data)
     // history('/userpage')
   }
