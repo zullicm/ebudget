@@ -1,6 +1,6 @@
 import React, { useState, useContext } from "react";
 import { UserContext } from "../Context/user";
-import { BudgetContext, BudgetsContext } from "../Context/budgets";
+import { BudgetsContext } from "../Context/budgets";
 import { useNavigate } from "react-router-dom";
 
 function LoginForm(){
