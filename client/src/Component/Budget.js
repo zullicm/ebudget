@@ -1,7 +1,10 @@
-import React, {useState} from "react";
+import React, {useState, useContext} from "react";
+import { BudgetsContext } from "../Context/budgets";
 
 function Budget({budget}){
   const {name, amount, color, start_date, end_date, user_id, id} = budget
+  const {budgets, setBudgets} = useContext(BudgetsContext)
+
 
   function deleteBudget(e){
     e.preventDefault()
@@ -9,7 +12,12 @@ function Budget({budget}){
       method: "DELETE"
     })
     .then(res => res.json())
-    .then(data => console.log(data))
+    .then(data => ridBudget(data))
+  }
+
+  function ridBudget(oldBudget){
+    const newBudgets = budgets.filter(budget => budget.id !== oldBudget.id)
+    setBudgets(newBudgets)
   }
 
   return(

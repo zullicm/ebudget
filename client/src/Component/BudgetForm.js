@@ -28,13 +28,12 @@ function BudgetForm(){
     })
     .then(r => {
       if(r.ok){
-        r.json().then(data => setBudgets(data))
+        r.json().then(data => setBudgets([...budgets, data]))
       }else{
         r.json().then(e => console.log(e))
       }
     })
   }
-
 
   return(
     <div className="form budget-form">
