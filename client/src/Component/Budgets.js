@@ -9,7 +9,7 @@ function Budgets(){
   console.log(budgets)
   return(
     <div>
-      {budgets.map(budget =><Budget key={budget.id} budget={budget} />)}
+      {budgets.map(budget =><Budget key={budget.id} childBudget={budget} />)}
     </div>
   )
 }

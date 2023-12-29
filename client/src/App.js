@@ -5,6 +5,7 @@ import HomePage from './Pages/HomePage';
 import NavBar from './Component/NavBar';
 import LoginPage from './Pages/LoginPage';
 import BudgetFormPage from './Pages/BudgetFormPage';
+import BudgetPage from './Pages/BudgetPage';
 
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
         <Route exact path='/' element={<HomePage />} />
         <Route exact path='/formpage' element={<BudgetFormPage/>} />
         <Route exact path='/login' element={<LoginPage/>} />
+        <Route exact path='/budgetpage' element={<BudgetPage/>} />
       </Routes>
     </div>
   );

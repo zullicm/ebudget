@@ -6,6 +6,7 @@ import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
 import { UserProvider } from './Context/user';
 import { BudgetsProvider } from './Context/budgets';
+import { BudgetProvider } from './Context/budget';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -13,7 +14,9 @@ root.render(
     <React.StrictMode>
       <UserProvider>
         <BudgetsProvider>
-          <App />
+          <BudgetProvider>
+            <App />
+          </BudgetProvider>
         </BudgetsProvider>
       </UserProvider>
     </React.StrictMode>
