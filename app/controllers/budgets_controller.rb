@@ -1,5 +1,6 @@
 class BudgetsController < ApplicationController
-  skip_before_action :authorized
+rescue_from ActiveRecord::RecordNotFound, with: :render_not_found_response
+  
   def index
     budgets = Budget.where(user_id: session[:user_id])
     if budgets
@@ -10,10 +11,7 @@ class BudgetsController < ApplicationController
   end
 
   def show
-    budget = find_budget
-    render json: budget
-  rescue ActiveRecord::RecordNotFound
-    render_not_found_response
+    render json: find_budget
   end
 
   def create
@@ -27,20 +25,14 @@ class BudgetsController < ApplicationController
 
   def update
     budget = find_budget
-    if budget
-      budget.update(budget_params)
-      render json: budget
-    else
-      render_not_found_response
-    end
+    budget.update(budget_params)
+    render json: budget
   end
 
   def destroy
     budget = find_budget
     budget.destroy
     render json: budget 
-  rescue ActiveRecord::RecordNotFound
-    render_not_found_response
   end
 
   private
@@ -61,5 +53,5 @@ end
 
 # When using the find instead of find_by method, we are thrown an active
 # record not found reponse instead of nil if it cant find the specific budget
-# So you can use the "rescue ActiveRecord::RecordNotFound" and that will go 
-# off if at any point there is an error
+# So you can use the "rescue_from ActiveRecord::RecordNotFound" and that will go 
+# off if at any point there is an error 
