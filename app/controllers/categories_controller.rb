@@ -1,6 +1,7 @@
 class CategoriesController < ApplicationController
   rescue_from ActiveRecord::RecordNotFound, with: :render_not_found_response
-  
+  skip_before_action :authorized
+
   def show
     render json: find_category
   end
@@ -29,7 +30,7 @@ class CategoriesController < ApplicationController
   private
 
   def category_params
-    # params.permit(:name, :amount, :color, :start_date, :end_date, :user_id)
+    params.permit(:name, :description, :color, :user_id, :budget_id)
   end
 
   def find_category
@@ -41,3 +42,4 @@ class CategoriesController < ApplicationController
   end
 
 end
+

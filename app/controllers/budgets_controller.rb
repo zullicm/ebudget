@@ -1,6 +1,7 @@
 class BudgetsController < ApplicationController
 rescue_from ActiveRecord::RecordNotFound, with: :render_not_found_response
-  
+skip_before_action :authorized
+
   def index
     budgets = Budget.where(user_id: session[:user_id])
     if budgets
