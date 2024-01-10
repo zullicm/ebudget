@@ -11,7 +11,7 @@ function CategoryForm(){
   const {budget, setBudget} = useContext(BudgetContext)
   
   function submitCategory(){
-    fetch('/budgets',{
+    fetch('/categories',{
       method: "POST",
       headers: {'Content-Type':'application/json'},
       body:JSON.stringify({
@@ -19,7 +19,7 @@ function CategoryForm(){
         description: description,
         color: color,
         user_id: user.id,
-        budget_id: budget
+        budget_id: budget.id
       })
     })
     .then(r => {
@@ -50,7 +50,7 @@ function CategoryForm(){
       onChange={e => setDescription(e.target.value)}
       >
       </input>
-      
+      git a
       <input
       name="color"
       value={color}
