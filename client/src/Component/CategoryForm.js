@@ -50,7 +50,6 @@ function CategoryForm(){
       onChange={e => setDescription(e.target.value)}
       >
       </input>
-      git a
       <input
       name="color"
       value={color}
