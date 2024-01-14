@@ -28,8 +28,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_16_193938) do
 
   create_table "categories", force: :cascade do |t|
     t.string "name"
-    t.string "description"
-    t.string "color"
     t.bigint "user_id", null: false
     t.bigint "budget_id", null: false
     t.datetime "created_at", null: false
