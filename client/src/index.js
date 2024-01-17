@@ -3,6 +3,9 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { Provider } from 'react-redux';
+import { store } from './Store/store.js';
+
 import { BrowserRouter } from 'react-router-dom';
 import { UserProvider } from './Context/user';
 import { BudgetsProvider } from './Context/budgets';
@@ -15,7 +18,9 @@ root.render(
       <UserProvider>
         <BudgetsProvider>
           <BudgetProvider>
-            <App />
+            <Provider store={store}>
+              <App />
+            </Provider>
           </BudgetProvider>
         </BudgetsProvider>
       </UserProvider>
