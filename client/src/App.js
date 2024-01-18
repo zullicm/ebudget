@@ -6,6 +6,7 @@ import NavBar from './Component/NavBar';
 import LoginPage from './Pages/LoginPage';
 import BudgetFormPage from './Pages/BudgetFormPage';
 import BudgetPage from './Pages/BudgetPage';
+import Reduxtest from './Component/Reduxtest';
 
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
         <Route exact path='/login' element={<LoginPage/>} />
         <Route exact path='/budgetpage' element={<BudgetPage/>} />
       </Routes>
+      <Reduxtest/>
     </div>
   );
 }
