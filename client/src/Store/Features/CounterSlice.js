@@ -5,18 +5,18 @@ const initialState = {
 }
 
 export const counterSlice = createSlice({
-  name: count,
+  name: 'count',
   initialState,
   reducer: {
     plusCount: (state, action) => {
-
-      }
-    },
+        return state + action.payload
+      },
     minusCount: (state, action) => {
-      
+        return state - action.payload
+    }
     }
   }
-})
+)
 
 export const {plusCount, minusCount} = counterSlice.actions
 
