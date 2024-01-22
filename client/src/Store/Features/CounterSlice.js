@@ -1,19 +1,16 @@
-import { createSlice, nanoid } from '@reduxjs/toolkit'
+import { createSlice } from '@reduxjs/toolkit'
 
-const initialState = {
-  count: 0
-}
 
 export const counterSlice = createSlice({
   name: 'count',
-  initialState,
-  reducer: {
-    plusCount: (state, action) => {
-        return state + action.payload
+  initialState: { count: 0},
+  reducers: {
+    plusCount: (state) => {
+        state.count += 1
       },
-    minusCount: (state, action) => {
-        return state - action.payload
-    }
+    minusCount: (state) => {
+        state.count -= 1
+      }
     }
   }
 )

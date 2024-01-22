@@ -4,24 +4,20 @@ import { plusCount, minusCount } from "../Store/Features/CounterSlice";
 
 function Reduxtest(){
   const [amount, setAmount] = useState(0)
-  const count = useSelector(state => state.count)
   const dispatch = useDispatch()
-
-  function addCount(){
-    dispatch(plusCount(amount))
-  }
+  const count = useSelector(state => state.counter.count)
 
   return(
     <div>
       Count: {count}
       <br/>
-      <button onClick={addCount} >+</button>
-      <button>-</button>
-      <input
+      <button onClick={() => dispatch(plusCount())} >+</button>
+      <button onClick={() => dispatch(minusCount())} >-</button>
+      {/* <input
       value={amount}
       onChange={(e) => setAmount(e.target.value)}
       placeholder="By how much"
-      ></input>
+      ></input> */}
     </div>
   )
 }
