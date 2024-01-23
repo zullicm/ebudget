@@ -7,17 +7,19 @@ function Reduxtest(){
   const dispatch = useDispatch()
   const count = useSelector(state => state.counter.count)
 
+  console.log(count)
+
   return(
     <div>
       Count: {count}
       <br/>
-      <button onClick={() => dispatch(plusCount())} >+</button>
-      <button onClick={() => dispatch(minusCount())} >-</button>
-      {/* <input
+      <button onClick={() => dispatch(plusCount(amount))} >+</button>
+      <button onClick={() => dispatch(minusCount(amount))} >-</button>
+      <input
       value={amount}
       onChange={(e) => setAmount(e.target.value)}
       placeholder="By how much"
-      ></input> */}
+      ></input>
     </div>
   )
 }

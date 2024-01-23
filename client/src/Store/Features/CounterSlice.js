@@ -5,11 +5,11 @@ export const counterSlice = createSlice({
   name: 'count',
   initialState: { count: 0},
   reducers: {
-    plusCount: (state) => {
-        state.count += 1
+    plusCount: (state, action) => {
+        state.count += parseInt(action.payload)
       },
-    minusCount: (state) => {
-        state.count -= 1
+    minusCount: (state, action) => {
+        state.count -= parseInt(action.payload)
       }
     }
   }
