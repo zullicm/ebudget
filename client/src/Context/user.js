@@ -4,11 +4,14 @@ const UserContext = React.createContext();
 function UserProvider({ children }) {
   const [user, setUser] = useState(null)
 
+
   useEffect(() =>{
     fetch('/auth')
     .then(res => {
       if(res.ok){
-        res.json().then(user => setUser(user))
+        res.json().then(user => {
+          setUser(user)
+        })
       }
     })
   },[])
