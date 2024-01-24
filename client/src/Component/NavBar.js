@@ -11,7 +11,7 @@ function NavBar() {
       <NavLink className="eBudget-Logo" exact to="/">eBudget</NavLink>
       <NavLink className="item item-1" exact to="/formpage">Budgets</NavLink>
       <NavLink className="item item-2" exact to="/formpage">Category</NavLink>
-      <NavLink className="item item-3" exact to="/formpage">Expense</NavLink>
+      <NavLink className="item item-3" exact to="/reduxtest">Expense</NavLink>
       {user ? <NavLink className="item item-4" exact to="/login">{user.username}</NavLink> : <NavLink className="item item-4" exact to="/login">Profile</NavLink>}
     </div>
   )

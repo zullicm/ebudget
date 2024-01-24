@@ -1,0 +1,20 @@
+import { createSlice } from '@reduxjs/toolkit'
+console.log(1)
+
+export const budgetsSlice = createSlice({
+  name: 'budgets',
+  initialState: [],
+  reducers: {
+      addBudget: (state, action) => {
+        state.push(action.payload)
+      },
+    }
+  }
+)
+
+export const {addBudget} = budgetsSlice.actions
+
+export default budgetsSlice.reducer
+
+// [...budgets, data]
+// initial state, then new budget

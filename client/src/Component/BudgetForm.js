@@ -1,6 +1,8 @@
 import React, { useState, useContext } from "react";
 import { UserContext } from "../Context/user";
 import { BudgetsContext } from "../Context/budgets";
+import { useDispatch } from "react-redux";
+import { addBudget } from "../Redux/Features/BudgetsSlice";
 
 
 function BudgetForm(){
@@ -11,6 +13,9 @@ function BudgetForm(){
   const [end , setEnd] = useState('')
   const {user, setUser} = useContext(UserContext)
   const {budgets, setBudgets} = useContext(BudgetsContext)
+
+  const dispatch = useDispatch()
+
   
   function submitBudget(){
     const floatAmount = parseFloat(amount.replace(/,/g, ''))
@@ -28,7 +33,7 @@ function BudgetForm(){
     })
     .then(r => {
       if(r.ok){
-        r.json().then(data => setBudgets([...budgets, data]))
+        r.json().then(data => dispatch(addBudget(data)))
       }else{
         r.json().then(e => console.log(e))
       }

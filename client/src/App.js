@@ -19,8 +19,8 @@ function App() {
         <Route exact path='/formpage' element={<BudgetFormPage/>} />
         <Route exact path='/login' element={<LoginPage/>} />
         <Route exact path='/budgetpage' element={<BudgetPage/>} />
+        <Route exact path='/reduxtest' element={<Reduxtest/>}/>
       </Routes>
-      <Reduxtest/>
     </div>
   );
 }

@@ -21,7 +21,3 @@ function UserProvider({ children }) {
 }
 
 export { UserContext, UserProvider }
-
-// To add to page
-// import { UserContext } from "../Context/user";
-// const {user, setUser} = useContext(UserContext)

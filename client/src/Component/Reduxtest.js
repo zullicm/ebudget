@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import { useDispatch, useSelector } from 'react-redux'
-import { plusCount, minusCount } from "../Store/Features/CounterSlice";
+import { plusCount, minusCount } from "../Redux/Features/CounterSlice";
 
 function Reduxtest(){
   const [amount, setAmount] = useState(0)
