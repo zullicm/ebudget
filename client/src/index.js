@@ -14,7 +14,7 @@ import { BudgetProvider } from './Context/budget';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <BrowserRouter>
-    <React.StrictMode>
+
       <UserProvider>
         <BudgetsProvider>
           <BudgetProvider>
@@ -24,7 +24,7 @@ root.render(
           </BudgetProvider>
         </BudgetsProvider>
       </UserProvider>
-    </React.StrictMode>
+
   </BrowserRouter>
 );
 

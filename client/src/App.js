@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useContext, useEffect} from 'react';
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import HomePage from './Pages/HomePage';
@@ -7,9 +7,27 @@ import LoginPage from './Pages/LoginPage';
 import BudgetFormPage from './Pages/BudgetFormPage';
 import BudgetPage from './Pages/BudgetPage';
 import Reduxtest from './Component/Reduxtest';
+import { UserContext } from './Context/user';
+import { useDispatch } from 'react-redux';
+import { addBudget } from './Redux/Features/BudgetsSlice';
 
 
 function App() {
+  const {user, setUser} = useContext(UserContext)
+  const dispatch = useDispatch()
+
+  useEffect(() =>{
+    fetch('/auth')
+    .then(res => {
+      if(res.ok){
+        res.json().then(user => {
+          setUser(user)
+          dispatch(addBudget(user.budgets[0]))
+        })
+      }
+    })
+  },[])
+
 
   return (
     <div>

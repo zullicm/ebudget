@@ -1,5 +1,4 @@
 import { createSlice } from '@reduxjs/toolkit'
-console.log(1)
 
 export const budgetsSlice = createSlice({
   name: 'budgets',
