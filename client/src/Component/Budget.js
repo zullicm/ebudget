@@ -2,11 +2,14 @@ import React, {useState, useContext} from "react";
 import { useNavigate } from "react-router-dom";
 import { BudgetsContext } from "../Context/budgets";
 import { BudgetContext } from "../Context/budget";
+import { useDispatch } from "react-redux";
+import { deleteBudget } from "../Redux/Features/BudgetsSlice";
 
 function Budget({childBudget}){
   const {name, amount, color, start_date, end_date, user_id, id} = childBudget
   const {budgets, setBudgets} = useContext(BudgetsContext)
   const {budget, setBudget} = useContext(BudgetContext)
+  const dispatch = useDispatch()
   const history = useNavigate()
 
   function toBudgetPage(){
@@ -20,12 +23,7 @@ function Budget({childBudget}){
       method: "DELETE"
     })
     .then(res => res.json())
-    .then(data => ridBudget(data))
-  }
-
-  function ridBudget(oldBudget){
-    const newBudgets = budgets.filter(budget => budget.id !== oldBudget.id)
-    setBudgets(newBudgets)
+    .then(data => () => dispatch(deleteBudget(id)))
   }
 
   return(

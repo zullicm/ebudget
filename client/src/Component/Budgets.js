@@ -12,7 +12,7 @@ function Budgets(){
   const {user, setUser} = useContext(UserContext)
   return(
     <div>
-      {reduxBudgets.map(budget =><Budget key={budget.id} childBudget={budget} />)}
+      {reduxBudgets.map(budget =><Budget  childBudget={budget} />)}
     </div>
   )
 }
