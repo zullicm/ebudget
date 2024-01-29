@@ -3,6 +3,7 @@ import { UserContext } from "../Context/user";
 import { BudgetsContext } from "../Context/budgets";
 import { useDispatch } from "react-redux";
 import { addBudget } from "../Redux/Features/BudgetsSlice";
+import Dates from "./Dates";
 
 
 function BudgetForm(){
@@ -11,9 +12,9 @@ function BudgetForm(){
   const [color, setColor] = useState('')
   const [start, setStart] = useState('')
   const [end , setEnd] = useState('')
+  const [check, setCheck] = useState(false)
   const {user, setUser} = useContext(UserContext)
   const {budgets, setBudgets} = useContext(BudgetsContext)
-
   const dispatch = useDispatch()
 
   
@@ -38,6 +39,12 @@ function BudgetForm(){
         r.json().then(e => console.log(e))
       }
     })
+  }
+
+  function ChangeCheck(){
+    setCheck(!check)
+    setStart('')
+    setEnd('')
   }
 
   return(
@@ -67,21 +74,11 @@ function BudgetForm(){
       >
       </input>
       <br/>
-      <p>Format Start and end date as such "03/23/2022"</p>
-      <input
-      name="start"
-      value={start}
-      placeholder="Start Date"
-      onChange={e => setStart(e.target.value)}
-      >
-      </input>
-      <input
-      name="end"
-      placeholder="End Date"
-      value={end}
-      onChange={e => setEnd(e.target.value)}
-      >
-      </input>
+      <labael>
+      <input type="checkbox" value={check} onChange={ChangeCheck} />
+      Does this budget have a timespan?
+      </labael>
+      {check ? <Dates start={start} setStart={setStart} end={end} setEnd={setEnd}/> : null}
       <button onClick={submitBudget} >Submit Budget</button>
       <button onClick={()=>console.log(budgets)}>BUDGETS</button>
     </div>
