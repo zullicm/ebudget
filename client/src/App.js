@@ -9,7 +9,7 @@ import BudgetPage from './Pages/BudgetPage';
 import Reduxtest from './Component/Reduxtest';
 import { UserContext } from './Context/user';
 import { useDispatch } from 'react-redux';
-import { addBudget } from './Redux/Features/BudgetsSlice';
+import { setBudgets } from './Redux/Features/BudgetsSlice';
 
 
 function App() {
@@ -22,7 +22,7 @@ function App() {
       if(res.ok){
         res.json().then(user => {
           setUser(user)
-          dispatch(addBudget(user.budgets[0]))
+          dispatch(setBudgets(user.budgets))
         })
       }
     })
