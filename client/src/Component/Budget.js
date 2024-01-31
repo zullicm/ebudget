@@ -1,18 +1,17 @@
 import React, {useState, useContext} from "react";
 import { useNavigate } from "react-router-dom";
-import { BudgetsContext } from "../Context/budgets";
-import { BudgetContext } from "../Context/budget";
+import { useDispatch } from "react-redux";
+import { setBudget } from "../Redux/Features/BudgetSlice";
 
 
 
 function Budget({childBudget, removeBudget}){
   const {name, amount, color, start_date, end_date, user_id, id} = childBudget
-  const {budgets, setBudgets} = useContext(BudgetsContext)
-  const {budget, setBudget} = useContext(BudgetContext)
+  const dispatch = useDispatch()
   const history = useNavigate()
 
   function toBudgetPage(){
-    setBudget(childBudget)
+    dispatch(setBudget(childBudget))
     history('/budgetpage')
   }
 
