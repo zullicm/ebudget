@@ -1,6 +1,5 @@
 import React, { useState, useContext } from "react";
 import { UserContext } from "../Context/user";
-import { BudgetContext } from "../Context/budget";
 
 
 function CategoryForm(){
@@ -8,7 +7,7 @@ function CategoryForm(){
   const [color, setColor] = useState('')
   const [description, setDescription] = useState('')
   const {user, setUser} = useContext(UserContext)
-  const {budget, setBudget} = useContext(BudgetContext)
+
   
   function submitCategory(){
     fetch('/categories',{

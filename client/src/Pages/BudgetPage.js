@@ -1,5 +1,4 @@
-import React, { useContext } from "react";
-import { BudgetContext } from "../Context/budget";
+import React from "react";
 import CategoryForm from "../Component/CategoryForm";
 
 import { useSelector } from "react-redux";

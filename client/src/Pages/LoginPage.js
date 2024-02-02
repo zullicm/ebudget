@@ -1,13 +1,15 @@
 import React, {useContext} from "react";
 import { useNavigate } from "react-router-dom";
 import { UserContext } from "../Context/user";
-import { BudgetsContext } from "../Context/budgets";
 import LoginForm from "../Component/LoginForm";
 import SignUpForm from "../Component/SignUpForm";
+import { useDispatch } from "react-redux";
+import { clearBudgets } from "../Redux/Features/BudgetsSlice";
 
 function LoginPage(){
   const {user, setUser} = useContext(UserContext)
-  const {budgets, setBudgets} = useContext(BudgetsContext)
+
+  const dispatch = useDispatch()
   const history = useNavigate()
 
   function handleSubmit(e) {
@@ -23,7 +25,7 @@ function LoginPage(){
     }).then(res =>{
       if(res.ok){
         setUser(null)
-        setBudgets([])
+        clearBudgets()
       }
     })
     history("/")

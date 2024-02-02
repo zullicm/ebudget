@@ -1,7 +1,9 @@
 import React, { useState, useContext } from "react";
 import { UserContext } from "../Context/user";
-import { BudgetsContext } from "../Context/budgets";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { setBudgets } from "../Redux/Features/BudgetsSlice";
+
 
 function LoginForm(){
   const [email, setEmail] = useState("")
@@ -9,7 +11,7 @@ function LoginForm(){
   const [show, setShow] = useState("password")
   const [error, setError] = useState(null)
   const {user, setUser} = useContext(UserContext)
-  const {budgets, setBudgets} = useContext(BudgetsContext)
+  const dispatch = useDispatch()
 
   // const history = useNavigate()
 
@@ -26,7 +28,7 @@ function LoginForm(){
   function setCurrentUser(data){
     setUser(data)
     setBudgets(data.budgets)
-    console.log(data)
+    
     // history('/userpage')
   }
 
