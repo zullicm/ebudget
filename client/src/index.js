@@ -8,21 +8,18 @@ import store from './Redux/store.js';
 
 import { BrowserRouter } from 'react-router-dom';
 import { UserProvider } from './Context/user';
-import { BudgetsProvider } from './Context/budgets';
-import { BudgetProvider } from './Context/budget';
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <BrowserRouter>
 
       <UserProvider>
-        <BudgetsProvider>
-          <BudgetProvider>
+
             <Provider store={store}>
               <App />
             </Provider>
-          </BudgetProvider>
-        </BudgetsProvider>
+
       </UserProvider>
 
   </BrowserRouter>
